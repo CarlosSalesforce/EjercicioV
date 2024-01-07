@@ -1,0 +1,107 @@
+<!--
+  @description       : 
+  @author            : Carlos Alarcón
+  @group             : 
+  @last modified on  : 01-07-2024
+  @last modified by  : Carlos Alarcón
+-->
+<template>
+    <div class="slds-box slds-theme_default">
+        <div class="slds-grid slds-wrap slds-m-around_medium">
+            <!-- PAGINA 1 -->
+            <template lwc:if={showPage1}>
+                <div class="slds-col slds-size_3-of-6">
+                    <div class="slds-text-align_left">
+                        <!-- FECHA-->
+                        <lightning-input type="date" label="Selecciona una fecha" value={selectedDate} onchange={handleDateChange}></lightning-input>
+                        <p>Fecha seleccionada: {formattedSelectedDate}</p>
+                        <p style="color: red;">{validateDateError}</p>
+                        <!-- BUSCAR CLINICA Y ESPECIALISTA-->
+                        <lightning-input label="Buscar Clinica" value={searchTerm} onchange={handleSearchTermChange}></lightning-input>
+                        <lightning-button label="Buscar" onclick={handleSearch}></lightning-button>
+                        <template lwc:if={accounts}>
+                            <lightning-combobox data-id="center" label="Selecciona una Clinica" value={selectedAccountId} options={accountOptions} onchange={handleAccountSelection}></lightning-combobox>
+                            <lightning-combobox data-id="specialist" label="Selecciona un Especialista" value={selectedContactId} options={filteredContactOptions} onchange={handleContactSelection}></lightning-combobox>
+                        </template>
+                        <p style="color: red;">{validateEmptyFields}</p>
+                    </div>
+                </div>
+            </template>
+            <!-- FIN PAGINA 1 -->
+            <!-- PAGINA 2 -->
+            <template lwc:if={showPage2}> 
+                <div class="slds-col slds-size_3-of-6">
+                    <div class="slds-text-align_left">
+                        <lightning-combobox
+                        label="Seleccionar Horas Disponibles"
+                        value={selectedHour}
+                        options={hourOptions}
+                        onchange={handlePicklistChange}
+                        multiple
+                        ></lightning-combobox>
+                        <p style="color: red;">{validateEmptyHour}</p>
+                    </div>
+                </div> 
+            </template>
+            <!-- FIN PAGINA 2 -->            
+            <!-- PAGINA 3 -->
+            <template lwc:if={showPage3}> 
+                <div class="slds-col slds-size_3-of-6">
+                    <div class="slds-text-align_left">
+                        <!-- Campo Nombre -->
+                        <lightning-input label="Nombre" type="text" value={firstname} onchange={handleFirstNameChange}></lightning-input>
+                        <!-- Campo Apellido -->
+                        <lightning-input label="Apellido" type="text" value={lastname} onchange={handleLastNameChange}></lightning-input>
+                        <!-- Campo Email -->
+                        <lightning-input label="Email" type="email" value={email} onchange={handleEmailChange}></lightning-input>
+                        <!-- Campo Teléfono -->
+                        <lightning-input label="Teléfono" type="tel" value={phone} onchange={handlePhoneChange}></lightning-input>
+                        <!-- Campo de Observaciones -->
+                        <lightning-textarea  label="Observaciones" value={observations} onchange={handleObservationsChange}></lightning-textarea>
+                    </div>
+                    <p style="color: red;">{validateEmptyFields}</p>
+                </div> 
+            </template>
+            <!-- FIN PAGINA 3 -->      
+            <!-- PAGINA 4 -->
+            <template lwc:if={showPage4}> 
+                <div class="slds-col slds-size_3-of-6">
+                    <div class="slds-text-align_left">
+                        <div>
+                            <p><b>RESUMEN DE LA CITA</b></p>
+                            <p><b>Nombre Completo:</b> {firstName}&nbsp;{lastName}</p>
+                            <p><b>Email:</b> {email}</p>
+                            <p><b>Teléfono:</b> {phone}</p>
+                            <p><b>Observaciones:</b> {observations}</p>
+                            <p><b>Dia y hora:</b> {selectedDate} {selectedHour}</p>
+                            <p><b>Centro:</b> {selectedAccountLabel}</p>
+                            <p><b>Especialista:</b> {selectedContactLabel}</p>
+                        </div>
+                    </div>
+                </div> 
+            </template>
+            <!-- FIN PAGINA 4 -->
+            <!-- INICIO BOTONES -->
+            <div class="slds-col slds-size_3-of-6 slds-align-bottom">
+                <div class="slds-grid slds-wrap">
+                    <template lwc:if={showButtonBack}>
+                        <div>
+                            <lightning-button class="slds-m-horizontal_small" label={label.labelBackButton} onclick={goBack} data-action="true"></lightning-button> 
+                        </div>
+                    </template>
+                    <template lwc:if={showButtonNext}>
+                        <div>
+                            <lightning-button class="slds-m-horizontal_small" label={label.labelNextButton} onclick={goNext} data-action="true"></lightning-button>
+                        </div>
+                    </template>
+                    <template lwc:if={showButtonEnd}>
+                        <div>
+                            <lightning-button class="slds-m-horizontal_small" label={label.labelScheduleRequestButton} onclick={goEnd} data-action="true"></lightning-button>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <!-- FIN BOTONES -->
+        </div>
+    </div>
+</template>

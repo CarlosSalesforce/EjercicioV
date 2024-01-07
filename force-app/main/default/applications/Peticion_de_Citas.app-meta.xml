@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Componente para gestión de Citas</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Petición de Citas</label>
+    <navType>Standard</navType>
+    <tabs>standard-Contact</tabs>
+    <tabs>Appointment__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Petici_n_de_Citas_UtilityBar</utilityBar>
+</CustomApplication>

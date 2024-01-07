@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>backButton</fullName>
+        <categories>General</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>backButton</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>nextButton</fullName>
+        <categories>General</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>nextButton</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>scheduleRequestButton</fullName>
+        <categories>lwc_dateScheduling</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>scheduleRequestButton</shortDescription>
+        <value>Schedule appointment</value>
+    </labels>
+</CustomLabels>

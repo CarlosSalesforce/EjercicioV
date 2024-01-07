@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <customApplications>
+        <description xsi:nil="true"/>
+        <label><!-- Petición de Citas --></label>
+        <name>Peticion_de_Citas</name>
+    </customApplications>
+    <customLabels>
+        <label>Atrás</label>
+        <name>backButton</name>
+    </customLabels>
+    <customLabels>
+        <label>Siguiente</label>
+        <name>nextButton</name>
+    </customLabels>
+    <customLabels>
+        <label>Pedir cita</label>
+        <name>scheduleRequestButton</name>
+    </customLabels>
+</Translations>
